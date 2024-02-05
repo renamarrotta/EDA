@@ -1,3 +1,118 @@
 # Data Overview
 
+The first step of the EDA process, is to get to know your data by understanding what exactly it contains. I will walk through the following EDA steps in both R and Python:
+
+-   Data shape
+
+-   Column names
+
+-   Data types
+
+-   Missing values
+
+```{r, setup}
+library(reticulate)
+```
+
+```{python}
+import pandas as pd
+#load in data
+df = pd.read_csv('Recalls_Data_20240204.csv')
+```
+ 
+We have a total of 15 variables and 27,648 observations.
+```{python}
+#number of observations and variables 
+df.shape
+```
+
+By printing all column names, we can see that "Park Outside Advisory" contains an extra space at the end which should be removed for consistency.
+```{python}
+#list of column names 
+cols = df.columns
+cols
+```
+By taking a subset of 20 rows of the data we can easily view the data to better understand the information it contains.Some of the object variables provide lengthy descriptions, including "Subject", Recall Description", "Consequence Summary", and "Corrective Action" while "Recall Link" contains a https link to the recall information.
+```{python}
+head = df.head(20)
+head
+```
+
+We can also see that we only have 2 numeric variables. The "Report Received Date" variable needs to be transformed to a datetime object and "Park Outside Advisory" and "Do Not Drive Advisory" both need to be transformed to Boolean objects. 
+```{python}
+df.dtypes
+```
+
+I will rename and redefine variable types in the following section.
+```{python}
+
+#rename 
+df = df.rename(columns = {'Park Outside Advisory ': 'Park Outside Advisory'})
+
+# change data types
+df['Park Outside Advisory'].unique() #No and Yes are the only unique values
+df['Park Outside Advisory'] = df['Park Outside Advisory'].map({'Yes': True, 'No': False})
+
+df['Do Not Drive Advisory'].unique() #No and Yes are the only unique values
+df['Do Not Drive Advisory'] = df['Do Not Drive Advisory'].map({'Yes': True, 'No': False})
+
+from datetime import datetime
+df['Report Received Date'] = pd.to_datetime(df['Report Received Date'])
+
+```
+
+Now our data types are representative of what they should be. 
+```{python}
+df.dtypes
+```
+
+Now that we have our data types correctly defined, we can continue our EDA.
+
+```{python}
+df[df.duplicated()] #checks duplicate values across all columns
+df[df['NHTSA ID'].duplicated()] #checks for duplicated unique ID's
+```
+
+The following code is used to identify the percentage of missing values by column in the dataframe:
+```{python}
+# calculates the sum of true values for each column and calculates the % of each column missing and normalizes it by the total number of rows
+percent_missing = df.isnull().sum() * 100 / len(df)
+
+# create a missing value data frame and sort in descending 
+missing_vals = pd.DataFrame({'colum_name': df.columns,
+                            'percent_missing': percent_missing}).reset_index(drop = True)
+                            
+missing_vals.sort_values(by = 'percent_missing', ascending = False)
+```
+
+Now we can see that Completion Rate % and Consequence Summary have the highest percentage of missing values. For Completion Rate % we can see that NA indicates that the percentage of remedied units out of the total recall population was not reported. Missingness for Consequence Summary, Recall Description, and Corrective Action, and Mfr Campaign Number can all be imputed as missing since they are categorical descriptions. Potentially Affected could possibly be imputed by the mean or median, but further analysis will be required to determine the best imputation for that variable.
+
+**NOTE** When predicting a target variable, imputation should wait until the dataset is split into train, validation, and test because if we will want to impute training data information. For this EDA Essentials Tutorial, I will not be predicting a target variable, so this is not a concern.
+
+```{python}
+#looking for any obvious patterns 
+miss_check = df[df['Potentially Affected'].isnull() == True] 
+
+# found that NR (Not Reported) is a value in Mfr Campaign Number 
+# are there other rows that indicate missingness through 'Not Reported'?
+
+rows_with_not_reported = df[df.applymap(lambda x: 'Not Reported' in str(x)).any(axis=1)]
+# looks to be only in Mfr Campaign Number 
+```
+
+The following code imputes categorical missing values. I decided to follow the missing convention for Mfr Campaign Number and Completion Rate % because these columns indicate a 'Not Reporting' option. For the other categorical variables, I imputed 'M' to indicate a missing value. 
+```{python}
+import numpy as np
+
+cat_missing = ['Consequence Summary', 'Recall Description', 'Corrective Action']
+for var in cat_missing:
+  df[var] = np.where(df[var].isnull(), 'M', df[var])
+
+df['Mfr Campaign Number'] = np.where(df['Mfr Campaign Number'].isnull(), 'NR (Not Reported)', df['Mfr Campaign Number'])
+df['Completion Rate % (Blank - Not Reported)'] = np.where(df['Completion Rate % (Blank - Not Reported)'].isnull(), '(Not Reported)', df['Completion Rate % (Blank - Not Reported)'])
+
+df.isnull().sum() * 100 / len(df)
+
+```
+
 

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section One: 2 Data Overview | Exploratory Data Analysis Essentials</title>
-  <meta name="description" content="Section One: 2 Data Overview | Exploratory Data Analysis Essentials" />
+  <title>Section2 Data Overview | Exploratory Data Analysis Essentials</title>
+  <meta name="description" content="Section2 Data Overview | Exploratory Data Analysis Essentials" />
   <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section One: 2 Data Overview | Exploratory Data Analysis Essentials" />
+  <meta property="og:title" content="Section2 Data Overview | Exploratory Data Analysis Essentials" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section One: 2 Data Overview | Exploratory Data Analysis Essentials" />
+  <meta name="twitter:title" content="Section2 Data Overview | Exploratory Data Analysis Essentials" />
   
   
   
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="visualization.html"/>
+<link rel="next" href="variable-assessment-and-visualization.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -78,7 +142,7 @@
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Summary</a></li>
 <li class="chapter" data-level="2" data-path="data-overview.html"><a href="data-overview.html"><i class="fa fa-check"></i><b>2</b> Data Overview</a></li>
-<li class="chapter" data-level="3" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>3</b> Visualization</a></li>
+<li class="chapter" data-level="3" data-path="variable-assessment-and-visualization.html"><a href="variable-assessment-and-visualization.html"><i class="fa fa-check"></i><b>3</b> Variable Assessment and Visualization</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -99,7 +163,180 @@
 
             <section class="normal" id="section-">
 <div id="data-overview" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">Section One: 2</span> Data Overview<a href="data-overview.html#data-overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">Section2</span> Data Overview<a href="data-overview.html#data-overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The first step of the EDA process, is to get to know your data by understanding what exactly it contains. I will walk through the following EDA steps in both R and Python:</p>
+<ul>
+<li><p>Data shape</p></li>
+<li><p>Column names</p></li>
+<li><p>Data types</p></li>
+<li><p>Missing values</p></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-overview.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="data-overview.html#cb2-1" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="data-overview.html#cb2-2" tabindex="-1"></a><span class="co">#load in data</span></span>
+<span id="cb2-3"><a href="data-overview.html#cb2-3" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">&#39;Recalls_Data_20240204.csv&#39;</span>)</span></code></pre></div>
+<p>We have a total of 15 variables and 27,648 observations.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="data-overview.html#cb3-1" tabindex="-1"></a><span class="co">#number of observations and variables </span></span>
+<span id="cb3-2"><a href="data-overview.html#cb3-2" tabindex="-1"></a>df.shape</span></code></pre></div>
+<pre><code>## (27648, 15)</code></pre>
+<p>By printing all column names, we can see that “Park Outside Advisory” contains an extra space at the end which should be removed for consistency.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="data-overview.html#cb5-1" tabindex="-1"></a><span class="co">#list of column names </span></span>
+<span id="cb5-2"><a href="data-overview.html#cb5-2" tabindex="-1"></a>cols <span class="op">=</span> df.columns</span>
+<span id="cb5-3"><a href="data-overview.html#cb5-3" tabindex="-1"></a>cols</span></code></pre></div>
+<pre><code>## Index([&#39;Report Received Date&#39;, &#39;NHTSA ID&#39;, &#39;Recall Link&#39;, &#39;Manufacturer&#39;,
+##        &#39;Subject&#39;, &#39;Component&#39;, &#39;Mfr Campaign Number&#39;, &#39;Recall Type&#39;,
+##        &#39;Potentially Affected&#39;, &#39;Recall Description&#39;, &#39;Consequence Summary&#39;,
+##        &#39;Corrective Action&#39;, &#39;Park Outside Advisory &#39;, &#39;Do Not Drive Advisory&#39;,
+##        &#39;Completion Rate % (Blank - Not Reported)&#39;],
+##       dtype=&#39;object&#39;)</code></pre>
+<p>By taking a subset of 20 rows of the data we can easily view the data to better understand the information it contains.Some of the object variables provide lengthy descriptions, including “Subject”, Recall Description”, “Consequence Summary”, and “Corrective Action” while “Recall Link” contains a https link to the recall information.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="data-overview.html#cb7-1" tabindex="-1"></a>head <span class="op">=</span> df.head(<span class="dv">20</span>)</span>
+<span id="cb7-2"><a href="data-overview.html#cb7-2" tabindex="-1"></a>head</span></code></pre></div>
+<pre><code>##    Report Received Date  ... Completion Rate % (Blank - Not Reported)
+## 0            01/31/2024  ...                                      NaN
+## 1            01/31/2024  ...                                      NaN
+## 2            01/30/2024  ...                                      NaN
+## 3            01/30/2024  ...                                      NaN
+## 4            01/30/2024  ...                                      NaN
+## 5            01/30/2024  ...                                      NaN
+## 6            01/26/2024  ...                                      NaN
+## 7            01/26/2024  ...                                      NaN
+## 8            01/26/2024  ...                                      NaN
+## 9            01/26/2024  ...                                      NaN
+## 10           01/26/2024  ...                                      NaN
+## 11           01/26/2024  ...                                      NaN
+## 12           01/25/2024  ...                                      NaN
+## 13           01/25/2024  ...                                      NaN
+## 14           01/25/2024  ...                                      NaN
+## 15           01/25/2024  ...                                      NaN
+## 16           01/25/2024  ...                                      NaN
+## 17           01/24/2024  ...                                      NaN
+## 18           01/23/2024  ...                                      NaN
+## 19           01/23/2024  ...                                      NaN
+## 
+## [20 rows x 15 columns]</code></pre>
+<p>We can also see that we only have 2 numeric variables. The “Report Received Date” variable needs to be transformed to a datetime object and “Park Outside Advisory” and “Do Not Drive Advisory” both need to be transformed to Boolean objects.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="data-overview.html#cb9-1" tabindex="-1"></a>df.dtypes</span></code></pre></div>
+<pre><code>## Report Received Date                         object
+## NHTSA ID                                     object
+## Recall Link                                  object
+## Manufacturer                                 object
+## Subject                                      object
+## Component                                    object
+## Mfr Campaign Number                          object
+## Recall Type                                  object
+## Potentially Affected                        float64
+## Recall Description                           object
+## Consequence Summary                          object
+## Corrective Action                            object
+## Park Outside Advisory                        object
+## Do Not Drive Advisory                        object
+## Completion Rate % (Blank - Not Reported)    float64
+## dtype: object</code></pre>
+<p>I will rename and redefine variable types in the following section.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="data-overview.html#cb11-1" tabindex="-1"></a><span class="co">#rename </span></span>
+<span id="cb11-2"><a href="data-overview.html#cb11-2" tabindex="-1"></a>df <span class="op">=</span> df.rename(columns <span class="op">=</span> {<span class="st">&#39;Park Outside Advisory &#39;</span>: <span class="st">&#39;Park Outside Advisory&#39;</span>})</span>
+<span id="cb11-3"><a href="data-overview.html#cb11-3" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="data-overview.html#cb11-4" tabindex="-1"></a><span class="co"># change data types</span></span>
+<span id="cb11-5"><a href="data-overview.html#cb11-5" tabindex="-1"></a>df[<span class="st">&#39;Park Outside Advisory&#39;</span>].unique() <span class="co">#No and Yes are the only unique values</span></span></code></pre></div>
+<pre><code>## array([&#39;No&#39;, &#39;Yes&#39;], dtype=object)</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="data-overview.html#cb13-1" tabindex="-1"></a>df[<span class="st">&#39;Park Outside Advisory&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;Park Outside Advisory&#39;</span>].<span class="bu">map</span>({<span class="st">&#39;Yes&#39;</span>: <span class="va">True</span>, <span class="st">&#39;No&#39;</span>: <span class="va">False</span>})</span>
+<span id="cb13-2"><a href="data-overview.html#cb13-2" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="data-overview.html#cb13-3" tabindex="-1"></a>df[<span class="st">&#39;Do Not Drive Advisory&#39;</span>].unique() <span class="co">#No and Yes are the only unique values</span></span></code></pre></div>
+<pre><code>## array([&#39;No&#39;, &#39;Yes&#39;], dtype=object)</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="data-overview.html#cb15-1" tabindex="-1"></a>df[<span class="st">&#39;Do Not Drive Advisory&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;Do Not Drive Advisory&#39;</span>].<span class="bu">map</span>({<span class="st">&#39;Yes&#39;</span>: <span class="va">True</span>, <span class="st">&#39;No&#39;</span>: <span class="va">False</span>})</span>
+<span id="cb15-2"><a href="data-overview.html#cb15-2" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="data-overview.html#cb15-3" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb15-4"><a href="data-overview.html#cb15-4" tabindex="-1"></a>df[<span class="st">&#39;Report Received Date&#39;</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">&#39;Report Received Date&#39;</span>])</span></code></pre></div>
+<p>Now our data types are representative of what they should be.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="data-overview.html#cb16-1" tabindex="-1"></a>df.dtypes</span></code></pre></div>
+<pre><code>## Report Received Date                        datetime64[ns]
+## NHTSA ID                                            object
+## Recall Link                                         object
+## Manufacturer                                        object
+## Subject                                             object
+## Component                                           object
+## Mfr Campaign Number                                 object
+## Recall Type                                         object
+## Potentially Affected                               float64
+## Recall Description                                  object
+## Consequence Summary                                 object
+## Corrective Action                                   object
+## Park Outside Advisory                                 bool
+## Do Not Drive Advisory                                 bool
+## Completion Rate % (Blank - Not Reported)           float64
+## dtype: object</code></pre>
+<p>Now that we have our data types correctly defined, we can continue our EDA.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="data-overview.html#cb18-1" tabindex="-1"></a>df[df.duplicated()] <span class="co">#checks duplicate values across all columns</span></span></code></pre></div>
+<pre><code>## Empty DataFrame
+## Columns: [Report Received Date, NHTSA ID, Recall Link, Manufacturer, Subject, Component, Mfr Campaign Number, Recall Type, Potentially Affected, Recall Description, Consequence Summary, Corrective Action, Park Outside Advisory, Do Not Drive Advisory, Completion Rate % (Blank - Not Reported)]
+## Index: []</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="data-overview.html#cb20-1" tabindex="-1"></a>df[df[<span class="st">&#39;NHTSA ID&#39;</span>].duplicated()] <span class="co">#checks for duplicated unique ID&#39;s</span></span></code></pre></div>
+<pre><code>## Empty DataFrame
+## Columns: [Report Received Date, NHTSA ID, Recall Link, Manufacturer, Subject, Component, Mfr Campaign Number, Recall Type, Potentially Affected, Recall Description, Consequence Summary, Corrective Action, Park Outside Advisory, Do Not Drive Advisory, Completion Rate % (Blank - Not Reported)]
+## Index: []</code></pre>
+<p>The following code is used to identify the percentage of missing values by column in the dataframe:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="data-overview.html#cb22-1" tabindex="-1"></a><span class="co"># calculates the sum of true values for each column and calculates the % of each column missing and normalizes it by the total number of rows</span></span>
+<span id="cb22-2"><a href="data-overview.html#cb22-2" tabindex="-1"></a>percent_missing <span class="op">=</span> df.isnull().<span class="bu">sum</span>() <span class="op">*</span> <span class="dv">100</span> <span class="op">/</span> <span class="bu">len</span>(df)</span>
+<span id="cb22-3"><a href="data-overview.html#cb22-3" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="data-overview.html#cb22-4" tabindex="-1"></a><span class="co"># create a missing value data frame and sort in descending </span></span>
+<span id="cb22-5"><a href="data-overview.html#cb22-5" tabindex="-1"></a>missing_vals <span class="op">=</span> pd.DataFrame({<span class="st">&#39;colum_name&#39;</span>: df.columns,</span>
+<span id="cb22-6"><a href="data-overview.html#cb22-6" tabindex="-1"></a>                            <span class="st">&#39;percent_missing&#39;</span>: percent_missing}).reset_index(drop <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb22-7"><a href="data-overview.html#cb22-7" tabindex="-1"></a>                            </span>
+<span id="cb22-8"><a href="data-overview.html#cb22-8" tabindex="-1"></a>missing_vals.sort_values(by <span class="op">=</span> <span class="st">&#39;percent_missing&#39;</span>, ascending <span class="op">=</span> <span class="va">False</span>)</span></code></pre></div>
+<pre><code>##                                   colum_name  percent_missing
+## 14  Completion Rate % (Blank - Not Reported)        66.919850
+## 10                       Consequence Summary        17.679398
+## 9                         Recall Description         8.684172
+## 11                         Corrective Action         8.637153
+## 6                        Mfr Campaign Number         0.162760
+## 8                       Potentially Affected         0.148293
+## 0                       Report Received Date         0.000000
+## 1                                   NHTSA ID         0.000000
+## 2                                Recall Link         0.000000
+## 3                               Manufacturer         0.000000
+## 4                                    Subject         0.000000
+## 5                                  Component         0.000000
+## 7                                Recall Type         0.000000
+## 12                     Park Outside Advisory         0.000000
+## 13                     Do Not Drive Advisory         0.000000</code></pre>
+<p>Now we can see that Completion Rate % and Consequence Summary have the highest percentage of missing values. For Completion Rate % we can see that NA indicates that the percentage of remedied units out of the total recall population was not reported. Missingness for Consequence Summary, Recall Description, and Corrective Action, and Mfr Campaign Number can all be imputed as missing since they are categorical descriptions. Potentially Affected could possibly be imputed by the mean or median, but further analysis will be required to determine the best imputation for that variable.</p>
+<p><strong>NOTE</strong> When predicting a target variable, imputation should wait until the dataset is split into train, validation, and test because if we will want to impute training data information. For this EDA Essentials Tutorial, I will not be predicting a target variable, so this is not a concern.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="data-overview.html#cb24-1" tabindex="-1"></a><span class="co">#looking for any obvious patterns </span></span>
+<span id="cb24-2"><a href="data-overview.html#cb24-2" tabindex="-1"></a>miss_check <span class="op">=</span> df[df[<span class="st">&#39;Potentially Affected&#39;</span>].isnull() <span class="op">==</span> <span class="va">True</span>] </span>
+<span id="cb24-3"><a href="data-overview.html#cb24-3" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="data-overview.html#cb24-4" tabindex="-1"></a><span class="co"># found that NR (Not Reported) is a value in Mfr Campaign Number </span></span>
+<span id="cb24-5"><a href="data-overview.html#cb24-5" tabindex="-1"></a><span class="co"># are there other rows that indicate missingness through &#39;Not Reported&#39;?</span></span>
+<span id="cb24-6"><a href="data-overview.html#cb24-6" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="data-overview.html#cb24-7" tabindex="-1"></a>rows_with_not_reported <span class="op">=</span> df[df.applymap(<span class="kw">lambda</span> x: <span class="st">&#39;Not Reported&#39;</span> <span class="kw">in</span> <span class="bu">str</span>(x)).<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)]</span>
+<span id="cb24-8"><a href="data-overview.html#cb24-8" tabindex="-1"></a><span class="co"># looks to be only in Mfr Campaign Number </span></span></code></pre></div>
+<p>The following code imputes categorical missing values. I decided to follow the missing convention for Mfr Campaign Number and Completion Rate % because these columns indicate a ‘Not Reporting’ option. For the other categorical variables, I imputed ‘M’ to indicate a missing value.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="data-overview.html#cb25-1" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb25-2"><a href="data-overview.html#cb25-2" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="data-overview.html#cb25-3" tabindex="-1"></a>cat_missing <span class="op">=</span> [<span class="st">&#39;Consequence Summary&#39;</span>, <span class="st">&#39;Recall Description&#39;</span>, <span class="st">&#39;Corrective Action&#39;</span>]</span>
+<span id="cb25-4"><a href="data-overview.html#cb25-4" tabindex="-1"></a><span class="cf">for</span> var <span class="kw">in</span> cat_missing:</span>
+<span id="cb25-5"><a href="data-overview.html#cb25-5" tabindex="-1"></a>  df[var] <span class="op">=</span> np.where(df[var].isnull(), <span class="st">&#39;M&#39;</span>, df[var])</span>
+<span id="cb25-6"><a href="data-overview.html#cb25-6" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="data-overview.html#cb25-7" tabindex="-1"></a>df[<span class="st">&#39;Mfr Campaign Number&#39;</span>] <span class="op">=</span> np.where(df[<span class="st">&#39;Mfr Campaign Number&#39;</span>].isnull(), <span class="st">&#39;NR (Not Reported)&#39;</span>, df[<span class="st">&#39;Mfr Campaign Number&#39;</span>])</span>
+<span id="cb25-8"><a href="data-overview.html#cb25-8" tabindex="-1"></a>df[<span class="st">&#39;Completion Rate % (Blank - Not Reported)&#39;</span>] <span class="op">=</span> np.where(df[<span class="st">&#39;Completion Rate % (Blank - Not Reported)&#39;</span>].isnull(), <span class="st">&#39;(Not Reported)&#39;</span>, df[<span class="st">&#39;Completion Rate % (Blank - Not Reported)&#39;</span>])</span>
+<span id="cb25-9"><a href="data-overview.html#cb25-9" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="data-overview.html#cb25-10" tabindex="-1"></a>df.isnull().<span class="bu">sum</span>() <span class="op">*</span> <span class="dv">100</span> <span class="op">/</span> <span class="bu">len</span>(df)</span></code></pre></div>
+<pre><code>## Report Received Date                        0.000000
+## NHTSA ID                                    0.000000
+## Recall Link                                 0.000000
+## Manufacturer                                0.000000
+## Subject                                     0.000000
+## Component                                   0.000000
+## Mfr Campaign Number                         0.000000
+## Recall Type                                 0.000000
+## Potentially Affected                        0.148293
+## Recall Description                          0.000000
+## Consequence Summary                         0.000000
+## Corrective Action                           0.000000
+## Park Outside Advisory                       0.000000
+## Do Not Drive Advisory                       0.000000
+## Completion Rate % (Blank - Not Reported)    0.000000
+## dtype: float64</code></pre>
 
 </div>
             </section>
@@ -108,7 +345,7 @@
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="variable-assessment-and-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

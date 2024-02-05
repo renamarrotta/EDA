@@ -21,7 +21,7 @@
 
 - [X] 3. Use `browseURL("docs/index.html")` to view your book locally (or just open `index.html` in a browser).
 
-- [ ] 4. If it looks good, commit and push all changed files to GitHub. 
+- [X ] 4. If it looks good, commit and push all changed files to GitHub. 
 
 (You will need to repeat steps 2 and 4 every time you wish to update the book online.)
 
