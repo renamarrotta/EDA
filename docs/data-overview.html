@@ -23,7 +23,7 @@
 <meta name="author" content="Rena Marrotta" />
 
 
-<meta name="date" content="2024-02-04" />
+<meta name="date" content="2024-02-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -164,7 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="data-overview" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">Section2</span> Data Overview<a href="data-overview.html#data-overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The first step of the EDA process, is to get to know your data by understanding what exactly it contains. I will walk through the following EDA steps in both R and Python:</p>
+<p>The first step of the EDA process, is to get to know your data by understanding what exactly it contains. I will walk through the following EDA steps in Python.</p>
 <ul>
 <li><p>Data shape</p></li>
 <li><p>Column names</p></li>
@@ -337,6 +337,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Do Not Drive Advisory                       0.000000
 ## Completion Rate % (Blank - Not Reported)    0.000000
 ## dtype: float64</code></pre>
+<p>What’s also great about having a datetime object is you can easily create year, quarter, and month columns based on the date.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="data-overview.html#cb27-1" tabindex="-1"></a></span>
+<span id="cb27-2"><a href="data-overview.html#cb27-2" tabindex="-1"></a>df[<span class="st">&#39;year&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;Report Received Date&#39;</span>].dt.year</span>
+<span id="cb27-3"><a href="data-overview.html#cb27-3" tabindex="-1"></a>df[<span class="st">&#39;quarter&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;Report Received Date&#39;</span>].dt.quarter</span>
+<span id="cb27-4"><a href="data-overview.html#cb27-4" tabindex="-1"></a>df[<span class="st">&#39;month&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;Report Received Date&#39;</span>].dt.month</span></code></pre></div>
 
 </div>
             </section>

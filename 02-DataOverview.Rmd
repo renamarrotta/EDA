@@ -1,6 +1,6 @@
 # Data Overview
 
-The first step of the EDA process, is to get to know your data by understanding what exactly it contains. I will walk through the following EDA steps in both R and Python:
+The first step of the EDA process, is to get to know your data by understanding what exactly it contains. I will walk through the following EDA steps in Python.
 
 -   Data shape
 
@@ -19,31 +19,37 @@ import pandas as pd
 #load in data
 df = pd.read_csv('Recalls_Data_20240204.csv')
 ```
- 
+
 We have a total of 15 variables and 27,648 observations.
+
 ```{python}
 #number of observations and variables 
 df.shape
 ```
 
 By printing all column names, we can see that "Park Outside Advisory" contains an extra space at the end which should be removed for consistency.
+
 ```{python}
 #list of column names 
 cols = df.columns
 cols
 ```
+
 By taking a subset of 20 rows of the data we can easily view the data to better understand the information it contains.Some of the object variables provide lengthy descriptions, including "Subject", Recall Description", "Consequence Summary", and "Corrective Action" while "Recall Link" contains a https link to the recall information.
+
 ```{python}
 head = df.head(20)
 head
 ```
 
-We can also see that we only have 2 numeric variables. The "Report Received Date" variable needs to be transformed to a datetime object and "Park Outside Advisory" and "Do Not Drive Advisory" both need to be transformed to Boolean objects. 
+We can also see that we only have 2 numeric variables. The "Report Received Date" variable needs to be transformed to a datetime object and "Park Outside Advisory" and "Do Not Drive Advisory" both need to be transformed to Boolean objects.
+
 ```{python}
 df.dtypes
 ```
 
 I will rename and redefine variable types in the following section.
+
 ```{python}
 
 #rename 
@@ -61,7 +67,8 @@ df['Report Received Date'] = pd.to_datetime(df['Report Received Date'])
 
 ```
 
-Now our data types are representative of what they should be. 
+Now our data types are representative of what they should be.
+
 ```{python}
 df.dtypes
 ```
@@ -74,6 +81,7 @@ df[df['NHTSA ID'].duplicated()] #checks for duplicated unique ID's
 ```
 
 The following code is used to identify the percentage of missing values by column in the dataframe:
+
 ```{python}
 # calculates the sum of true values for each column and calculates the % of each column missing and normalizes it by the total number of rows
 percent_missing = df.isnull().sum() * 100 / len(df)
@@ -100,7 +108,8 @@ rows_with_not_reported = df[df.applymap(lambda x: 'Not Reported' in str(x)).any(
 # looks to be only in Mfr Campaign Number 
 ```
 
-The following code imputes categorical missing values. I decided to follow the missing convention for Mfr Campaign Number and Completion Rate % because these columns indicate a 'Not Reporting' option. For the other categorical variables, I imputed 'M' to indicate a missing value. 
+The following code imputes categorical missing values. I decided to follow the missing convention for Mfr Campaign Number and Completion Rate % because these columns indicate a 'Not Reporting' option. For the other categorical variables, I imputed 'M' to indicate a missing value.
+
 ```{python}
 import numpy as np
 
@@ -115,4 +124,13 @@ df.isnull().sum() * 100 / len(df)
 
 ```
 
+What's also great about having a datetime object is you can easily create year, quarter, and month columns based on the date.
+
+```{python}
+
+df['year'] = df['Report Received Date'].dt.year
+df['quarter'] = df['Report Received Date'].dt.quarter
+df['month'] = df['Report Received Date'].dt.month
+
+```
 
