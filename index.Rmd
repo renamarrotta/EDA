@@ -7,6 +7,6 @@ site: bookdown::bookdown_site
 
 # Summary
 
-The United States National Highway Traffic Safety Administration provides a dataset of over 27,000 recalls recorded in the US from 1966 to 2024. I will be using this data to illustrate EDA Essentials as a data scientist.
+The United States National Highway Traffic Safety Administration provides a dataset of over 27,000 recalls recorded in the US from 1966 to 2024. I will be using this data to illustrate EDA Essentials.
 
 Source: https://datahub.transportation.gov/Automobiles/Recalls-Data/6axg-epim/about_data

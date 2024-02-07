@@ -39,7 +39,6 @@ By taking a subset of 20 rows of the data we can easily view the data to better 
 
 ```{python}
 head = df.head(20)
-head
 ```
 
 We can also see that we only have 2 numeric variables. The "Report Received Date" variable needs to be transformed to a datetime object and "Park Outside Advisory" and "Do Not Drive Advisory" both need to be transformed to Boolean objects.
@@ -48,18 +47,18 @@ We can also see that we only have 2 numeric variables. The "Report Received Date
 df.dtypes
 ```
 
-I will rename and redefine variable types in the following section.
+I will rename and redefine variable types in the following section. I use .unique() to identify the values in the variables.
 
 ```{python}
 
 #rename 
 df = df.rename(columns = {'Park Outside Advisory ': 'Park Outside Advisory'})
 
-# change data types
-df['Park Outside Advisory'].unique() #No and Yes are the only unique values
-df['Park Outside Advisory'] = df['Park Outside Advisory'].map({'Yes': True, 'No': False})
+df['Park Outside Advisory'].unique(); #No and Yes are the only unique values
+df['Do Not Drive Advisory'].unique(); #No and Yes are the only unique values
 
-df['Do Not Drive Advisory'].unique() #No and Yes are the only unique values
+# change data types
+df['Park Outside Advisory'] = df['Park Outside Advisory'].map({'Yes': True, 'No': False})
 df['Do Not Drive Advisory'] = df['Do Not Drive Advisory'].map({'Yes': True, 'No': False})
 
 from datetime import datetime
@@ -76,8 +75,8 @@ df.dtypes
 Now that we have our data types correctly defined, we can continue our EDA.
 
 ```{python}
-df[df.duplicated()] #checks duplicate values across all columns
-df[df['NHTSA ID'].duplicated()] #checks for duplicated unique ID's
+df[df.duplicated()]; #checks duplicate values across all columns
+df[df['NHTSA ID'].duplicated()]; #checks for duplicated unique ID's
 ```
 
 The following code is used to identify the percentage of missing values by column in the dataframe:
@@ -93,16 +92,17 @@ missing_vals = pd.DataFrame({'colum_name': df.columns,
 missing_vals.sort_values(by = 'percent_missing', ascending = False)
 ```
 
-Now we can see that Completion Rate % and Consequence Summary have the highest percentage of missing values. For Completion Rate % we can see that NA indicates that the percentage of remedied units out of the total recall population was not reported. Missingness for Consequence Summary, Recall Description, and Corrective Action, and Mfr Campaign Number can all be imputed as missing since they are categorical descriptions. Potentially Affected could possibly be imputed by the mean or median, but further analysis will be required to determine the best imputation for that variable.
+Now we can see that "Completion Rate %" and "Consequence Summary" have the highest percentage of missing values. For "Completion Rate %" we can see that NA indicates that the percentage of remedied units out of the total recall population was not reported. Missingness for "Consequence Summary", "Recall Description", "Corrective Action", and "Mfr Campaign Number" can all be imputed as missing since they are categorical descriptions. "Potentially Affected" could possibly be imputed by the mean or median, but further analysis will be required to determine the best imputation for that variable.
 
 **NOTE** When predicting a target variable, imputation should wait until the dataset is split into train, validation, and test because if we will want to impute training data information. For this EDA Essentials Tutorial, I will not be predicting a target variable, so this is not a concern.
+
+Before imputation, it's important to take a look at the observations that have missing values to detect if there are any patterns that could explain the missingness. Through this I found that "Mfr Campaign Number" already had a way to record that it was not reported, so I wanted to further look if there were other columns that used similar conventions.
 
 ```{python}
 #looking for any obvious patterns 
 miss_check = df[df['Potentially Affected'].isnull() == True] 
 
 # found that NR (Not Reported) is a value in Mfr Campaign Number 
-# are there other rows that indicate missingness through 'Not Reported'?
 
 rows_with_not_reported = df[df.applymap(lambda x: 'Not Reported' in str(x)).any(axis=1)]
 # looks to be only in Mfr Campaign Number 
